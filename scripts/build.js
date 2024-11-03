@@ -33,5 +33,7 @@ build({
     target: "es2021",
     outdir: "dist",
 }).then(() => {
-    fs.rename("dist/index.js", "dist/leap.js", () => {});
+    const content = fs.readFileSync("dist/index.js", "utf8");
+    fs.writeFileSync("dist/leap.js", content);
+    fs.rmSync("dist/index.js");
 })
