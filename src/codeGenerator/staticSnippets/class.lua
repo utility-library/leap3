@@ -6,7 +6,11 @@ if not _leap_internal_classBuilder then
         end
     
         if baseClass.__prototype then
-            prototype.super = baseClass
+            prototype.super = setmetatable({__type = baseClass.__type, __prototype = baseClass.__prototype}, {
+                __index = baseClass.__prototype,
+                __call = baseClass,
+                __newindex = function(self, k) error("attempted to assign class property '"..k.."' directly, please instantiate the class before assigning any properties", 2) end,
+            })
         end
     
         _G[name] = setmetatable({__type = name, __prototype = prototype}, {
