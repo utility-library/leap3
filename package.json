@@ -1,10 +1,25 @@
 {
-  "scripts": {
-    "run": "node index.js"
+  "name": "leap",
+  "displayName": "Leap",
+  "description": "Leap Highlighting",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.94.0"
   },
-  "dependencies": {
-    "antlr4": "^4.13.2",
-    "glob": "^10.3.10",
-    "luamin": "^1.0.4"
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "lua",
+      "aliases": ["Lua (Leap)", "lua"],
+      "extensions": [".lua"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "lua",
+      "scopeName": "leap.lua",
+      "path": "./syntaxes/lua.tmLanguage.json"
+    }]
   }
 }
