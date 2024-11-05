@@ -200,7 +200,7 @@ newcall
 explist
 exp
 tablecomprehension
-anonfunc
+compactfunc
 indexed_member
 var
 prefixexp

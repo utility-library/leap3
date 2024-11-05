@@ -6,7 +6,7 @@
 Think of it as an effective "modernity" leap into the future to make lua a feature-rich language.  
 
 ## TODO
-  - [ ] Implementing fivem 
+  - [X] Implementing fivem 
 
 ## Parsing suppport
   - [X] Leap grammar (based on antlrv4/lua)
@@ -26,13 +26,12 @@ Think of it as an effective "modernity" leap into the future to make lua a featu
   - [X] In operator
   - [X] Table comprehension
   - [X] leap.deserialize (to deserialize classes)
-
-## Leap v1 added features
   # (a, b) do ... end
   # a do ...
   # (a, b) do ...
-  - [X] Arrow functions 
+  - [X] Compact functions 
 
+## Leap v1 added features
   - [X] Decorators
   - [X] New keyword
   - [X] Classes

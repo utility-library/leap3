@@ -69,7 +69,7 @@ end
 
 someMathIntensiveFunction(100)
 
--- Arrow function
+-- Compact function
 local tab = {3, 10, 50, 20, 5}
 table.sort(tab, (a, b) do a < b) -- Inline with multiple params
 

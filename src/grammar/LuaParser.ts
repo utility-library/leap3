@@ -124,7 +124,7 @@ export default class LuaParser extends Parser {
 	public static readonly RULE_explist = 14;
 	public static readonly RULE_exp = 15;
 	public static readonly RULE_tablecomprehension = 16;
-	public static readonly RULE_anonfunc = 17;
+	public static readonly RULE_compactfunc = 17;
 	public static readonly RULE_indexed_member = 18;
 	public static readonly RULE_var = 19;
 	public static readonly RULE_prefixexp = 20;
@@ -243,7 +243,7 @@ export default class LuaParser extends Parser {
 	public static readonly ruleNames: string[] = [
 		"start_", "chunk", "block", "stat", "attnamelist", "attrib", "retstat", 
 		"label", "funcname", "varlist", "namelist", "decorator", "decoratorbody", 
-		"newcall", "explist", "exp", "tablecomprehension", "anonfunc", "indexed_member", 
+		"newcall", "explist", "exp", "tablecomprehension", "compactfunc", "indexed_member", 
 		"var", "prefixexp", "functioncall", "compound", "args", "functiondef", 
 		"funcbody", "class", "partype", "defaultvalue", "extendedpar", "extendedparlist", 
 		"parlist", "tableconstructor", "fieldlist", "field", "fieldsep", "identifier", 
@@ -1249,7 +1249,7 @@ export default class LuaParser extends Parser {
 			case 8:
 				{
 				this.state = 299;
-				this.anonfunc();
+				this.compactfunc();
 				}
 				break;
 			case 9:
@@ -1577,9 +1577,9 @@ export default class LuaParser extends Parser {
 		return localctx;
 	}
 	// @RuleVersion(0)
-	public anonfunc(): AnonfuncContext {
-		let localctx: AnonfuncContext = new AnonfuncContext(this, this._ctx, this.state);
-		this.enterRule(localctx, 34, LuaParser.RULE_anonfunc);
+	public compactfunc(): CompactfuncContext {
+		let localctx: CompactfuncContext = new CompactfuncContext(this, this._ctx, this.state);
+		this.enterRule(localctx, 34, LuaParser.RULE_compactfunc);
 		let _la: number;
 		try {
 			this.state = 386;
@@ -3726,8 +3726,8 @@ export class ExpContext extends ParserRuleContext {
 	public newcall(): NewcallContext {
 		return this.getTypedRuleContext(NewcallContext, 0) as NewcallContext;
 	}
-	public anonfunc(): AnonfuncContext {
-		return this.getTypedRuleContext(AnonfuncContext, 0) as AnonfuncContext;
+	public compactfunc(): CompactfuncContext {
+		return this.getTypedRuleContext(CompactfuncContext, 0) as CompactfuncContext;
 	}
 	public tablecomprehension(): TablecomprehensionContext {
 		return this.getTypedRuleContext(TablecomprehensionContext, 0) as TablecomprehensionContext;
@@ -3895,7 +3895,7 @@ export class TablecomprehensionContext extends ParserRuleContext {
 }
 
 
-export class AnonfuncContext extends ParserRuleContext {
+export class CompactfuncContext extends ParserRuleContext {
 	constructor(parser?: LuaParser, parent?: ParserRuleContext, invokingState?: number) {
 		super(parent, invokingState);
     	this.parser = parser;
@@ -3925,16 +3925,16 @@ export class AnonfuncContext extends ParserRuleContext {
 		return this.getToken(LuaParser.END, 0);
 	}
     public get ruleIndex(): number {
-    	return LuaParser.RULE_anonfunc;
+    	return LuaParser.RULE_compactfunc;
 	}
 	public enterRule(listener: LuaParserListener): void {
-	    if(listener.enterAnonfunc) {
-	 		listener.enterAnonfunc(this);
+	    if(listener.enterCompactfunc) {
+	 		listener.enterCompactfunc(this);
 		}
 	}
 	public exitRule(listener: LuaParserListener): void {
-	    if(listener.exitAnonfunc) {
-	 		listener.exitAnonfunc(this);
+	    if(listener.exitCompactfunc) {
+	 		listener.exitCompactfunc(this);
 		}
 	}
 }

@@ -1,5 +1,5 @@
 import { ParserRuleContext, TerminalNode } from 'antlr4';
-import { AnonfuncContext, ArgsContext, AttnamelistContext, AttribContext, BlockContext, ChunkContext, ClassContext, CompoundContext, DecoratorbodyContext, DecoratorContext, DefaultvalueContext, ExpContext, ExplistContext, ExtendedparContext, ExtendedparlistContext, FieldContext, FieldlistContext, FieldsepContext, FuncbodyContext, FuncnameContext, FunctioncallContext, FunctiondefContext, IdentifierContext, Indexed_memberContext, LabelContext, NamelistContext, NewcallContext, NumberContext, ParlistContext, PartypeContext, PrefixexpContext, RetstatContext, Start_Context, StatContext, StringContext, TablecomprehensionContext, TableconstructorContext, VarContext, VarlistContext } from '../grammar/LuaParser.js';
+import { CompactfuncContext, ArgsContext, AttnamelistContext, AttribContext, BlockContext, ChunkContext, ClassContext, CompoundContext, DecoratorbodyContext, DecoratorContext, DefaultvalueContext, ExpContext, ExplistContext, ExtendedparContext, ExtendedparlistContext, FieldContext, FieldlistContext, FieldsepContext, FuncbodyContext, FuncnameContext, FunctioncallContext, FunctiondefContext, IdentifierContext, Indexed_memberContext, LabelContext, NamelistContext, NewcallContext, NumberContext, ParlistContext, PartypeContext, PrefixexpContext, RetstatContext, Start_Context, StatContext, StringContext, TablecomprehensionContext, TableconstructorContext, VarContext, VarlistContext } from '../grammar/LuaParser.js';
 import LuaListener from '../grammar/LuaParserListener.js';
 import Utils from './utils.js';
 import CodeManager from './manager.js';
@@ -256,8 +256,8 @@ class CodeGenerator extends LuaListener {
         } else if (ctx.prefixexp()) {
             return this.enterPrefixexp(ctx.prefixexp());
 
-        } else if (ctx.anonfunc()) {
-            return this.enterAnonfunc(ctx.anonfunc());
+        } else if (ctx.compactfunc()) {
+            return this.enterCompactfunc(ctx.compactfunc());
         } else if (ctx.tablecomprehension()) {
             return this.enterTablecomprehension(ctx.tablecomprehension());
 
@@ -326,7 +326,7 @@ class CodeGenerator extends LuaListener {
         return code.get();
     };
 
-    enterAnonfunc = (ctx: AnonfuncContext): string => {
+    enterCompactfunc = (ctx: CompactfuncContext): string => {
         const code = new Code();
 
         code.add("function")

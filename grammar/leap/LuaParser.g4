@@ -105,7 +105,7 @@ exp
     | string
     | '...'
     | newcall
-    | anonfunc
+    | compactfunc
     | tablecomprehension
     | functiondef
     | prefixexp
@@ -127,7 +127,7 @@ tablecomprehension
     : '{' exp (',' exp)? 'for' namelist 'in' explist ('if' exp)? '}'
     ;
 
-anonfunc
+compactfunc
     : '('? identifier ')'? 'do' exp
     | '(' parlist ')' 'do' block 'end'
     | '(' parlist ')' 'do' exp

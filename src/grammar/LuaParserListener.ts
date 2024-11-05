@@ -20,7 +20,7 @@ import { NewcallContext } from "./LuaParser.js";
 import { ExplistContext } from "./LuaParser.js";
 import { ExpContext } from "./LuaParser.js";
 import { TablecomprehensionContext } from "./LuaParser.js";
-import { AnonfuncContext } from "./LuaParser.js";
+import { CompactfuncContext } from "./LuaParser.js";
 import { Indexed_memberContext } from "./LuaParser.js";
 import { VarContext } from "./LuaParser.js";
 import { PrefixexpContext } from "./LuaParser.js";
@@ -220,15 +220,15 @@ export default class LuaParserListener extends ParseTreeListener {
 	 */
 	exitTablecomprehension?: (ctx: TablecomprehensionContext) => void;
 	/**
-	 * Enter a parse tree produced by `LuaParser.anonfunc`.
+	 * Enter a parse tree produced by `LuaParser.compactfunc`.
 	 * @param ctx the parse tree
 	 */
-	enterAnonfunc?: (ctx: AnonfuncContext) => void;
+	enterCompactfunc?: (ctx: CompactfuncContext) => void;
 	/**
-	 * Exit a parse tree produced by `LuaParser.anonfunc`.
+	 * Exit a parse tree produced by `LuaParser.compactfunc`.
 	 * @param ctx the parse tree
 	 */
-	exitAnonfunc?: (ctx: AnonfuncContext) => void;
+	exitCompactfunc?: (ctx: CompactfuncContext) => void;
 	/**
 	 * Enter a parse tree produced by `LuaParser.indexed_member`.
 	 * @param ctx the parse tree
