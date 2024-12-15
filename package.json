@@ -1,8 +1,14 @@
 {
-  "name": "leap",
-  "displayName": "Leap",
-  "description": "Leap Highlighting",
-  "version": "0.0.1",
+  "name": "leap-lua",
+  "displayName": "Leap - Lua",
+  "description": "Leap (Lua extension accessibility pre-processor) is a fast pre-processor of a modernized and extended version of lua that pre-processes in pure executable lua.",
+  "version": "0.0.2",
+  "publisher": "XenoS",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/utility-library/leap3/tree/syntax-highlight-vscode"
+  },
   "engines": {
     "vscode": "^1.94.0"
   },
